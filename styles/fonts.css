@@ -1,0 +1,14 @@
+@font-face
+{
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/NunitoSans_10pt-Regular.ttf) format('opentype');
+}
+@font-face
+{
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../assets/fonts/NunitoSans_10pt-SemiBold.ttf) format('opentype');
+}
