@@ -1,12 +1,12 @@
 # Library Mine
 
 Have books...  
-Want to buy books...  
+Want books...  
 ...and now know which ones.
 
 ## License
 
-Code is [MIT](https://opensource.org/license/mit).
+Code is MIT.
 
 Book covers are fair use.
 

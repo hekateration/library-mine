@@ -283,8 +283,8 @@ const purgeBookDetails = () =>
   viewBookDetails.innerHTML = ``;
 };
 
-const viewBooksListHave = document.getElementById('view-books-list-have');
-const viewBooksListWant = document.getElementById('view-books-list-want');
+const viewBookListHave = document.getElementById('view-book-list-have');
+const viewBookListWant = document.getElementById('view-book-list-want');
 const viewBookDetails = document.getElementById('view-book-details');
 const initBookLists = () =>
 {
@@ -294,11 +294,11 @@ const initBookLists = () =>
 
     if (Object.hasOwn(book.stats, 'acquire'))
     {
-      viewBooksListWant.insertAdjacentHTML('beforeend', stringifyBookListItem(book, azOrder[i]));
+      viewBookListWant.insertAdjacentHTML('beforeend', stringifyBookListItem(book, azOrder[i]));
     }
     else
     {
-      viewBooksListHave.insertAdjacentHTML('beforeend', stringifyBookListItem(book, azOrder[i]));
+      viewBookListHave.insertAdjacentHTML('beforeend', stringifyBookListItem(book, azOrder[i]));
     }
 
     const viewBookCover =
@@ -310,15 +310,15 @@ const initBookLists = () =>
 };
 initBookLists();
 
-const viewBooksListControl = document.getElementById('view-books-list-control');
-const viewBooksListWindow = document.getElementById('view-books-list-window');
-viewBooksListControl.addEventListener('click', () =>
+const viewBookListControl = document.getElementById('view-book-list-control');
+const viewBookListWindow = document.getElementById('view-book-list-window');
+viewBookListControl.addEventListener('click', () =>
 {
-  viewBooksListWindow.classList.toggle('hidden');
+  viewBookListWindow.classList.toggle('hidden');
 });
 
-const viewBooksListOptionHave = document.getElementById('view-books-list-option-have');
-const viewBooksListOptionWant = document.getElementById('view-books-list-option-want');
+const viewBookListOptionHave = document.getElementById('view-book-list-option-have');
+const viewBookListOptionWant = document.getElementById('view-book-list-option-want');
 const displayTypes = { HAVE: 0, WANT: 1, DETAILS: 2 };
 const settings =
 {
@@ -331,19 +331,19 @@ const changeDisplay = (toDisplay, book) =>
   const viewHeaderSearchbar = document.getElementById('view-header-searchbar');
   const viewHeaderTitle = document.getElementById('view-header-title');
 
-  const optionWantValue = viewBooksListOptionWant.children[2];
-  const optionHaveValue = viewBooksListOptionHave.children[2];
+  const optionWantValue = viewBookListOptionWant.children[2];
+  const optionHaveValue = viewBookListOptionHave.children[2];
 
   // Hide current display
   if (settings.atDisplay === displayTypes.HAVE)
   {
     optionHaveValue.classList.remove('selected');
-    viewBooksListHave.classList.add('hidden');
+    viewBookListHave.classList.add('hidden');
   }
   else if (settings.atDisplay === displayTypes.WANT)
   {
     optionWantValue.classList.remove('selected');
-    viewBooksListWant.classList.add('hidden');
+    viewBookListWant.classList.add('hidden');
   }
   else if (settings.atDisplay === displayTypes.DETAILS)
   {
@@ -358,20 +358,20 @@ const changeDisplay = (toDisplay, book) =>
   if (toDisplay === displayTypes.HAVE)
   {
     optionHaveValue.classList.add('selected');
-    viewBooksListControl.innerHTML = icons.HAVE;
-    viewBooksListHave.classList.remove('hidden');
+    viewBookListControl.innerHTML = icons.HAVE;
+    viewBookListHave.classList.remove('hidden');
   }
   else if (toDisplay === displayTypes.WANT)
   {
     optionWantValue.classList.add('selected');
-    viewBooksListControl.innerHTML = icons.WANT;
-    viewBooksListWant.classList.remove('hidden');
+    viewBookListControl.innerHTML = icons.WANT;
+    viewBookListWant.classList.remove('hidden');
   }
   else if (toDisplay === displayTypes.DETAILS)
   {
     viewHeaderSearchbar.classList.add('hidden');
     viewHeaderTitle.classList.remove('hidden');
-    viewBooksListControl.innerHTML = icons.BOOK_DETAILS;
+    viewBookListControl.innerHTML = icons.BOOK_DETAILS;
 
     viewBookDetails.insertAdjacentHTML('beforeend', stringifyBookDetails(book));
     viewBookDetails.classList.remove('hidden');
@@ -381,11 +381,11 @@ const changeDisplay = (toDisplay, book) =>
   window.scrollTo(0, 0);
 };
 
-viewBooksListOptionHave.addEventListener('click', () =>
+viewBookListOptionHave.addEventListener('click', () =>
 {
   changeDisplay(displayTypes.HAVE);
 });
-viewBooksListOptionWant.addEventListener('click', () =>
+viewBookListOptionWant.addEventListener('click', () =>
 {
   changeDisplay(displayTypes.WANT);
 });
